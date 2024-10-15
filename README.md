@@ -30,7 +30,7 @@
 
 ### App Evaluation
 
-- **Category**: 🎶 Music / Lifestyle
+- **Category**: 🎶 Music 
 - **Story**: Allows users to receive music recommendations tailored to their current mood, enhancing their listening experience and discovering new music.
 - **Market**: Suitable for all music enthusiasts who want personalized music recommendations based on their emotions.
 - **Habit**: Users may use the app daily or whenever they wish to find music that matches their mood.
@@ -101,7 +101,7 @@
 
 ## Wireframes
 
-*Include your wireframes here. If you haven't created them yet, you can sketch them out on paper or using a digital tool and insert the images.*
+*![img.png](img.png)*
 
 - **Mood Selection Screen Wireframe**
 - **Recommendations Screen Wireframe**
@@ -109,13 +109,6 @@
 - **Profile Screen Wireframe**
 - **Settings Screen Wireframe**
 
-### Digital Wireframes & Mockups
-
-*If you have digital versions or mockups, include them here.*
-
-### [BONUS] Interactive Prototype
-
-*If you have an interactive prototype, provide a link or embed it here.*
 
 ## Schema
 
