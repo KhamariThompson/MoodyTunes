@@ -17,7 +17,7 @@
    - [Milestone 1: Initial Setup & User Authentication 🚀](#milestone-1-initial-setup--user-authentication-)
    - [Milestone 2: Basic UI and Data Models 🎨](#milestone-2-basic-ui-and-data-models-)
    - [Milestone 3: Integrate Mood-Based API & Networking 🌐](#milestone-3-integrate-mood-based-api--networking-)
-   - [Milestone 4: Final Testing & Deployment 🧪🚢](#milestone-4-final-testing--deployment-)
+   - [Milestone 4: Final Testing & Deployment 🧪](#milestone-4-final-testing--deployment-)
    - [Summary of Milestones and Timeline 📅](#summary-of-milestones-and-timeline-)
 - [Resources 📚](#resources-)
 - [Notes 🗒️](#notes-)
@@ -334,22 +334,3 @@
 
 ---
 
-## Resources 📚
-
-- **Firebase Documentation**
-   - [Firestore](https://firebase.google.com/docs/firestore)
-   - [Authentication](https://firebase.google.com/docs/auth)
-
-- **Spotify API Documentation**
-   - [Web API Reference](https://developer.spotify.com/documentation/web-api/)
-
-- **Spring Boot Guides**
-   - [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-
-- **GitHub Guides**
-   - [Mastering Issues](https://guides.github.com/features/issues/)
-   - [About Project Boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-project-boards)
-
-- **Design Tools**
-   - [Figma](https://www.figma.com/)
-   - [Adobe XD](https://www.adobe.com/products/xd.html)
