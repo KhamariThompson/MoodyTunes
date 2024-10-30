@@ -1,17 +1,23 @@
 package moodtunes.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.Date;
 import java.util.List;
 
 public class User {
     private String username;
     private String email;
     private List<String> favoriteMoods;
-    private String createdAt;
-    private String updatedAt;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssX")
+    private Date createdAt;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssX")
+    private Date updatedAt;
 
     public User() {} // No-arg constructor
 
-    public User(String username, String email, List<String> favoriteMoods, String createdAt, String updatedAt) {
+    public User(String username, String email, List<String> favoriteMoods, Date createdAt, Date updatedAt) {
         this.username = username;
         this.email = email;
         this.favoriteMoods = favoriteMoods;
@@ -29,9 +35,9 @@ public class User {
     public List<String> getFavoriteMoods() { return favoriteMoods; }
     public void setFavoriteMoods(List<String> favoriteMoods) { this.favoriteMoods = favoriteMoods; }
 
-    public String getCreatedAt() { return createdAt; }
-    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
+    public Date getCreatedAt() { return createdAt; }
+    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
 
-    public String getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(String updatedAt) { this.updatedAt = updatedAt; }
+    public Date getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
 }

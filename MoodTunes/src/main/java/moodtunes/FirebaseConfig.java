@@ -1,4 +1,4 @@
-package edu.famu.moodtunes.services;
+package moodtunes;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
@@ -14,18 +14,23 @@ public class FirebaseConfig {
 
     @PostConstruct
     public void initialize() throws IOException {
-        InputStream serviceAccount = getClass().getClassLoader()
-                .getResourceAsStream("firebase-service-account.json");
+        // Check if Firebase has already been initialized to prevent duplicate initialization
+        if (FirebaseApp.getApps().isEmpty()) {
+            InputStream serviceAccount = getClass().getClassLoader()
+                    .getResourceAsStream("serviceAccountKey.json");
 
-        if (serviceAccount == null) {
-            throw new IllegalStateException("Firebase service account file not found.");
+            if (serviceAccount == null) {
+                throw new IllegalStateException("Firebase service account file not found.");
+            }
+
+            FirebaseOptions options = new FirebaseOptions.Builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .build();
+
+            FirebaseApp.initializeApp(options);
+            System.out.println("Firebase initialized successfully.");
+        } else {
+            System.out.println("Firebase already initialized.");
         }
-
-        FirebaseOptions options = new FirebaseOptions.Builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .build();
-
-        FirebaseApp.initializeApp(options);
-        System.out.println("Firebase initialized successfully.");
     }
 }
