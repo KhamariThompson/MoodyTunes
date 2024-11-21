@@ -22,4 +22,8 @@ public class Mood {
 
     public String getCreatedAt() { return createdAt; }
     public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
+
+    public void setId(String moodId) {
+        
+    }
 }

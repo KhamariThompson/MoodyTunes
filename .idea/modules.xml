@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/IDK-Repo.iml" filepath="$PROJECT_DIR$/.idea/IDK-Repo.iml" />
       <module fileurl="file://$PROJECT_DIR$/MoodTunes/MoodTunes.iml" filepath="$PROJECT_DIR$/MoodTunes/MoodTunes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend.iml" filepath="$PROJECT_DIR$/frontend.iml" />
     </modules>
   </component>
 </project>
