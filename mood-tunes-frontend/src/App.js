@@ -1,35 +1,32 @@
-// src/App.jsx
-
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 
 import LandingPage from "./pages/LandingPage";
-import Login from "./components/Login";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 import MoodSelector from "./pages/MoodSelector";
 import Header from "./components/Header";
 import SavedPlaylists from "./pages/SavedPlaylists";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Loader from "./components/Loader";
+import NotFound from "./components/NotFound";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [checkingAuth, setCheckingAuth] = useState(true); // To handle initial auth check
+    const [checkingAuth, setCheckingAuth] = useState(true);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setIsAuthenticated(!!user); // Set to true if a user is logged in
+            setIsAuthenticated(!!user);
             setCheckingAuth(false);
         });
         return () => unsubscribe();
     }, []);
 
     if (checkingAuth) {
-        return (
-            <div style={{ paddingTop: "100px", textAlign: "center", fontSize: "24px" }}>
-                Loading...
-            </div>
-        );
+        return <Loader />;
     }
 
     return (
@@ -37,21 +34,35 @@ function App() {
             <Header isAuthenticated={isAuthenticated} />
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/login" element={isAuthenticated ? <Navigate to="/home" /> : <Login />} />
+                <Route
+                    path="/login"
+                    element={isAuthenticated ? <Navigate to="/home" /> : <Login />}
+                />
                 <Route
                     path="/home"
-                    element={isAuthenticated ? <Home /> : <Navigate to="/login" />}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <Home />
+                        </ProtectedRoute>
+                    }
                 />
                 <Route
                     path="/mood-selector"
-                    element={isAuthenticated ? <MoodSelector /> : <Navigate to="/login" />}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <MoodSelector />
+                        </ProtectedRoute>
+                    }
                 />
                 <Route
                     path="/saved-playlists"
-                    element={isAuthenticated ? <SavedPlaylists /> : <Navigate to="/login" />}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated}>
+                            <SavedPlaylists />
+                        </ProtectedRoute>
+                    }
                 />
-                {/* Redirect any unknown routes to LandingPage */}
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
     );
